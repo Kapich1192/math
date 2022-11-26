@@ -1,7 +1,5 @@
 #include "../s21_math_tests.h"
 
-#include <stdio.h>
-
 START_TEST(s21_abs_1) {
     ck_assert_int_eq(s21_abs(21), abs(21));
 }

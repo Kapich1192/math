@@ -10,6 +10,10 @@ int main(void) {
     if(temp != 0)
         return temp;
     /*#2*/
+    temp = test_acos();
+    if(temp != 0)
+        return temp;
+
     return temp;
 }
 

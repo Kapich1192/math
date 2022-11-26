@@ -8,6 +8,7 @@ FILES_C_COMMON = common/s21_factorial.c
 FILES_H= s21_math.h
 
 FILES_TESTS_C= tests/s21_math_tests.h tests/main.c tests/s21_abs_tests/s21_abs_tests.c
+FT_C_1= tests/s21_abs_tests/s21_abs_tests.c tests/s21_acos_tests/s21_acos_tests.c
 FILES_TESTS_H= ppp
 
 FILES_O= s21_abs.o s21_acos.o s21_asin.o s21_atan.o s21_ceil.o s21_cos.o s21_exp.o s21_fabs.o s21_floor.o s21_fmod.o s21_log.o s21_pow.o s21_sin.o s21_sqrt.o s21_tan.o
@@ -18,7 +19,7 @@ all: clean s21_math.a
 # ======================================= Компиляция тестов ===========================================================
 # -pthread -lcheck_pic -pthread -lrt -lm -lsubunit // флаги сообщающие путь к библиотеке check  убунту
 test:
-	gcc -g -Wall -Werror -Wextra  tests/s21_abs_tests/s21_abs_tests.c tests/main.c s21_math.a  -o tests/run_tests -pthread -lcheck_pic -pthread -lrt -lm -lsubunit
+	gcc -g -Wall -Werror -Wextra   ${FT_C_1} tests/main.c s21_math.a  -o tests/run_tests -pthread -lcheck_pic -pthread -lrt -lm -lsubunit
 
 test_st: t_s21_abs.o t_s21_acos.o t_s21_asin.o t_s21_atan.o t_s21_ceil.o t_s21_cos.o t_s21_exp.o t_s21_fabs.o t_s21_floor.o t_s21_fmod.o t_s21_log.o t_s21_pow.o t_s21_sin.o t_s21_sqrt.o t_s21_tan.o
 	ar rc tests/tests_s21_math.a s21_math_tests.h ${FILES_O_TESTS}
