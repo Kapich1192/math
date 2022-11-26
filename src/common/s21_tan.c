@@ -4,7 +4,7 @@
  * вычисляет тангенс
  * */
 long double s21_tan(double x) {
-  long double result = 0;
+  long double result = x;
 
   return result;
 }

@@ -5,7 +5,7 @@
  * вычисляет арксинус
  * */
 long double s21_asin(double x) {
-  long double result = 0;
+  long double result = x;
 
   return result;
 }

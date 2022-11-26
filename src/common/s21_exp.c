@@ -4,7 +4,7 @@
  * возвращает значение e, возведенное в заданную степень
  * */
 long double s21_exp(double x) {
-  long double result = 0;
+  long double result = x;
 
   return result;
 }

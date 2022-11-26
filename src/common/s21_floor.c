@@ -4,7 +4,7 @@
  * возвращает ближайшее целое число, не превышающее заданное значение
  * */
 long double s21_floor(double x) {
-  long double result = 0;
+  long double result = x;
 
   return result;
 }

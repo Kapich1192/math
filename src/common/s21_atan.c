@@ -5,7 +5,7 @@
  * вычисляет арктангенс
  * */
 long double s21_atan(double x) {
-  long double result = 0;
+  long double result = x;
 
   return result;
 }

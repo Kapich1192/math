@@ -4,7 +4,7 @@
  * остаток операции деления с плавающей точкой
  * */
 long double s21_fmod(double base, double exp) {
-  long double result = 0;
+  long double result = base + exp;
 
   return result;
 }

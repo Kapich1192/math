@@ -5,7 +5,7 @@
  * вычисляет арккосинус
  * */
 long double s21_acos(double x) {
-  long double result = 0;
+  long double result = x;
 
   return result;
 }

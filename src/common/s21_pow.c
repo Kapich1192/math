@@ -5,6 +5,6 @@
  * */
 long double s21_pow(double base, double exp) {
   // if (exp - 0 >
-  long double result = 0;
+  long double result = base + exp;
   return result;
 }
