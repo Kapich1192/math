@@ -1,18 +1,38 @@
-#include "../../s21_math.h"
-#include <stdlib.h>
-#include <math.h>
-#include <check.h>
 #include "../s21_math_tests.h"
 
-START_TEST(test_sub) {
-        fail_unless(s21_abs(-5) == abs(-5));
-}
-END_TEST
+START_TEST(s21_ceil_1) {
+        ck_assert_ldouble_eq_tol(s21_ceil(15), ceil(15), S21_EPS);
+} END_TEST
 
-Suite * make_s21_abs_suite(void) {
-    Suite * s = suite_create ("sub"); // Создать Suite
-    TCase * tc_sub = tcase_create ("sub"); // Создаем набор тестовых примеров
-    suite_add_tcase (s, tc_sub); // добавляем тестовый пример в набор
-    tcase_add_test (tc_sub, test_sub); // добавляем тестовый пример в набор тестов
-    return s;
+START_TEST(s21_ceil_2) {
+    ck_assert_ldouble_eq_tol(s21_ceil(21), ceil(21), S21_EPS);
+} END_TEST
+
+Suite* s21_ceil_suite_create(void) {
+
+    Suite* suite = suite_create("s21_ceil");
+
+    TCase* tcase_core = tcase_create("Core of s21_ceil");
+
+    tcase_add_test(tcase_core,s21_ceil_1);
+    tcase_add_test(tcase_core,s21_ceil_2);
+
+    suite_add_tcase(suite, tcase_core);
+
+    return suite;
+}
+
+int test_ceil(void) {
+    /*Создаем структуру и заполняем ее тестами*/
+    Suite* suite = s21_ceil_suite_create();
+    /*Создаем ранер тестов*/
+    SRunner* suite_runner = srunner_create(suite);
+    srunner_run_all(suite_runner,CK_NORMAL);
+
+    int failed_count = srunner_ntests_failed(suite_runner);
+    srunner_free(suite_runner);
+    if (failed_count != 0) {
+        return EXIT_FAILURE;
+    }
+    return EXIT_SUCCESS;
 }

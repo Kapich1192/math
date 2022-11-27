@@ -16,7 +16,7 @@ FILES_O= s21_abs.o s21_acos.o s21_asin.o s21_atan.o s21_ceil.o s21_cos.o s21_exp
 #файлы тестов
 FILES_TESTS_C= tests/s21_math_tests.h tests/main.c tests/s21_abs_tests/s21_abs_tests.c
 FT_C_1= tests/s21_abs_tests/s21_abs_tests.c tests/s21_acos_tests/s21_acos_tests.c tests/s21_asin_tests/s21_asin_tests.c
-FT_C_2= tests/s21_atan_tests/s21_atan_tests.c
+FT_C_2= tests/s21_atan_tests/s21_atan_tests.c tests/s21_ceil_tests/s21_ceil_tests.c tests/s21_cos_tests/s21_cos_tests.c
 FT_C_3=
 FT_C_4=
 FT_C_5=
