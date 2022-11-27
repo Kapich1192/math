@@ -60,6 +60,21 @@ START_TEST(s21_abs_12) {
 }
 END_TEST
 
+START_TEST(s21_abs_13) {
+    ck_assert_int_eq(s21_abs(678), abs(678));
+}
+END_TEST
+
+START_TEST(s21_abs_14) {
+    ck_assert_int_eq(s21_abs(111111), abs(111111));
+}
+END_TEST
+
+START_TEST(s21_abs_15) {
+    ck_assert_int_eq(s21_abs(-111111), abs(-111111));
+}
+END_TEST
+
 // Функция создания набора тестов.
 Suite *s21_abs_suite_create(void)
 {
@@ -81,6 +96,9 @@ Suite *s21_abs_suite_create(void)
     tcase_add_test(tcase_core, s21_abs_10);
     tcase_add_test(tcase_core, s21_abs_11);
     tcase_add_test(tcase_core, s21_abs_12);
+    tcase_add_test(tcase_core, s21_abs_13);
+    tcase_add_test(tcase_core, s21_abs_14);
+    tcase_add_test(tcase_core, s21_abs_15);
     // Добавление теста в тестовый набор.
     suite_add_tcase(suite, tcase_core);
 

@@ -7,12 +7,10 @@ int main(void) {
     int temp = 0;
     /*#1 s21_abs*/
     temp = test_abs();
-    if(temp != 0)
-        return temp;
-    /*#2*/
+    /*#2 s21_acos*/
     temp = test_acos();
-    if(temp != 0)
-        return temp;
+    /*#3 s21_asin*/
+    temp = test_asin();
 
     return temp;
 }

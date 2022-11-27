@@ -8,7 +8,7 @@ FILES_C_COMMON = common/s21_factorial.c
 FILES_H= s21_math.h
 
 FILES_TESTS_C= tests/s21_math_tests.h tests/main.c tests/s21_abs_tests/s21_abs_tests.c
-FT_C_1= tests/s21_abs_tests/s21_abs_tests.c tests/s21_acos_tests/s21_acos_tests.c
+FT_C_1= tests/s21_abs_tests/s21_abs_tests.c tests/s21_acos_tests/s21_acos_tests.c tests/s21_asin_tests/s21_asin_tests.c
 FILES_TESTS_H= ppp
 
 FILES_O= s21_abs.o s21_acos.o s21_asin.o s21_atan.o s21_ceil.o s21_cos.o s21_exp.o s21_fabs.o s21_floor.o s21_fmod.o s21_log.o s21_pow.o s21_sin.o s21_sqrt.o s21_tan.o
