@@ -1,26 +1,36 @@
+#персонализация
 USERNAME= barbreye
+EMAIL= barbrey@student.21-school.ru
 BRANCH_NAME= develop
+#Флаги
 GCC= gcc
+GCCG= gcc -g
 FLAGS= -Wall -Werror -Wextra
-
+TESTS_UBUNTU= -pthread -lcheck_pic -pthread -lrt -lm -lsubunit
+#файлы проекта
 FILES_C= common/s21_abs.c  common/s21_asin.c common/s21_atan.c common/s21_ceil.c common/s21_cos.c common/s21_exp.c common/s21_fabs.c common/s21_floor.c common/s21_fmod.c common/s21_log.c common/s21_pow.c common/s21_sin.c common/s21_sqrt.c common/s21_tan.c
 FILES_C_COMMON = common/s21_factorial.c
 FILES_H= s21_math.h
-
+#Объектные файлы для создания статической библиотеки math.h
+FILES_O= s21_abs.o s21_acos.o s21_asin.o s21_atan.o s21_ceil.o s21_cos.o s21_exp.o s21_fabs.o s21_floor.o s21_fmod.o s21_log.o s21_pow.o s21_sin.o s21_sqrt.o s21_tan.o
+#файлы тестов
 FILES_TESTS_C= tests/s21_math_tests.h tests/main.c tests/s21_abs_tests/s21_abs_tests.c
 FT_C_1= tests/s21_abs_tests/s21_abs_tests.c tests/s21_acos_tests/s21_acos_tests.c tests/s21_asin_tests/s21_asin_tests.c
-FILES_TESTS_H= ppp
+FT_C_2= tests/s21_atan_tests/s21_atan_tests.c
+FT_C_3=
+FT_C_4=
+FT_C_5=
 
-FILES_O= s21_abs.o s21_acos.o s21_asin.o s21_atan.o s21_ceil.o s21_cos.o s21_exp.o s21_fabs.o s21_floor.o s21_fmod.o s21_log.o s21_pow.o s21_sin.o s21_sqrt.o s21_tan.o
+
 SOURCE= -o mmm
-FILES_O_TESTS= tests/static/s21_abs.o tests/static/s21_acos.o tests/static/s21_asin.o tests/static/s21_atan.o tests/static/s21_ceil.o tests/static/s21_cos.o tests/static/s21_exp.o tests/static/s21_fabs.o tests/static/s21_floor.o tests/static/s21_fmod.o s21_log.o tests/static/s21_pow.o tests/static/s21_sin.o tests/static/s21_sqrt.o tests/static/s21_tan.o
-all: clean s21_math.a
+
+all: clean s21_math.a test
 
 # ======================================= Компиляция тестов ===========================================================
 # -pthread -lcheck_pic -pthread -lrt -lm -lsubunit // флаги сообщающие путь к библиотеке check  убунту
 test:
-	gcc -g -Wall -Werror -Wextra   ${FT_C_1} tests/main.c s21_math.a  -o tests/run_tests -pthread -lcheck_pic -pthread -lrt -lm -lsubunit
-
+	${GCCG} ${FLAGS} ${FT_C_1}  ${FT_C_2} tests/main.c s21_math.a -o tests/run_tests ${TESTS_UBUNTU}
+#	./tests/run_tests
 test_st: t_s21_abs.o t_s21_acos.o t_s21_asin.o t_s21_atan.o t_s21_ceil.o t_s21_cos.o t_s21_exp.o t_s21_fabs.o t_s21_floor.o t_s21_fmod.o t_s21_log.o t_s21_pow.o t_s21_sin.o t_s21_sqrt.o t_s21_tan.o
 	ar rc tests/tests_s21_math.a s21_math_tests.h ${FILES_O_TESTS}
 #1

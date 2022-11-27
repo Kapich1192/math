@@ -11,7 +11,8 @@ int main(void) {
     temp = test_acos();
     /*#3 s21_asin*/
     temp = test_asin();
-
+    /*#3 s21_atan*/
+    temp = test_atan();
     return temp;
 }
 
