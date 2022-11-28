@@ -54,7 +54,7 @@ test: clean s21_math.a
 gcov_report: test
 	gcov *.gcno
 	gcov *.gcda
-	gcovr --html-details *.gcda -o THISSSSS.html
+	gcovr -o THISSSSS.html
 
 
 # ======================================= Тесты на утечки =============================================================
