@@ -5,7 +5,7 @@ START_TEST(s21_fmod_1) {
 } END_TEST
 
 START_TEST(s21_fmod_2) {
-    ck_assert_ldouble_eq_tol(s21_fmod(21), fmod(21), S21_EPS);
+    ck_assert_ldouble_eq_tol(s21_fmod(21,5), fmod(21,5), S21_EPS);
 } END_TEST
 
 Suite* s21_fmod_suite_create(void) {
