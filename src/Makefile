@@ -37,33 +37,37 @@ FT_C_4= tests/s21_fmod_tests/s21_fmod_tests.c tests/s21_log_tests/s21_log_tests.
 FT_C_5= tests/s21_sin_tests/s21_sin_tests.c tests/s21_sqrt_tests/s21_sqrt_tests.c tests/s21_tan_tests/s21_tan_tests.c
 SOURCE_TESTS= -o test
 
-all: clean s21_math.a test
+all: clean gcov_report
 
 # ======================================= Компиляция тестов ===========================================================
 # -pthread -lcheck_pic -pthread -lrt -lm -lsubunit // флаги сообщающие путь к библиотеке check  убунту
 test: clean s21_math.a
-	${GCCG} ${FLAGS} ${FT_C_1} ${FT_C_2} ${FT_C_3} ${FT_C_4} ${FT_C_5} ${FT_C} s21_math.a ${SOURCE_TESTS} ${TESTS_UBUNTU} ${GCOV_FLAGS}
-	./test > ttttt.txt
-	gcov test_s21_*.gcda
-	gcovr -b
-	gcovr
-	gcovr --html-details -o report.html
+	${GCCG} ${FLAGS} ${FT_C_1} ${FT_C_2} ${FT_C_3} ${FT_C_4} ${FT_C_5} ${FT_C} s21_math.a ${SOURCE_TESTS} ${TESTS_UBUNTU}
+
+
 #	ar rc suite_cases.a ${FT_C_1} ${FT_C_2} ${FT_C_3} ${FT_C_4} ${FT_C_5}
 #	ranlib suite_cases.a
 #	${GCC} ${FLAGS} --coverage s21_math.a suite_cases.a ${SOURCE_TESTS} ${F_C_1} ${F_C_2} ${F_C_3} ${F_C_4} ${F_C_5} main.o -lcheck
 
 # ======================================= Вывод тестов в HTML отчет ===================================================
-gcov_report: test
-	gcovr *.gcda -b -o THISSSSS.html
-
+gcov_report: clean s21_math.a
+	${GCCG} ${FLAGS} ${FT_C_1} ${FT_C_2} ${FT_C_3} ${FT_C_4} ${FT_C_5} ${FT_C} s21_math.a ${SOURCE_TESTS} ${TESTS_UBUNTU} ${GCOV_FLAGS}
+	./test
+	gcov test_s21_*.gcda
+	gcovr -b
+	gcovr
+	gcovr --html-details -o report/report.html
+	rm -rf *.gcda *gcno
 
 # ======================================= Тесты на утечки =============================================================
 tests_valgrind:
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=res_leak.txt ./test
 	grep -e ERROR res_leak.txt
+	rm -rf *.gcda
 # ======================================= Сборка библиотеки в файл s21_math.a =========================================
 s21_math.a: clean.o clean.a s21_abs.o s21_acos.o s21_asin.o s21_atan.o s21_ceil.o s21_cos.o s21_exp.o s21_fabs.o s21_floor.o s21_fmod.o s21_log.o s21_pow.o s21_sin.o s21_sqrt.o s21_tan.o
 	ar rc s21_math.a ${F_O_1} ${F_O_2} ${F_O_3} ${F_O_4} ${F_O_5}
+	ranlib s21_math.a
 	make clean.o
 #1
 s21_abs.o:
@@ -142,3 +146,4 @@ clean:
 	rm -rf *.gcov
 	rm -rf *.txt
 	rm -rf *.html
+	rm -rf report/*
