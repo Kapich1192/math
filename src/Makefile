@@ -17,9 +17,9 @@ FILES_O= s21_abs.o s21_acos.o s21_asin.o s21_atan.o s21_ceil.o s21_cos.o s21_exp
 FILES_TESTS_C= tests/s21_math_tests.h tests/main.c tests/s21_abs_tests/s21_abs_tests.c
 FT_C_1= tests/s21_abs_tests/s21_abs_tests.c tests/s21_acos_tests/s21_acos_tests.c tests/s21_asin_tests/s21_asin_tests.c
 FT_C_2= tests/s21_atan_tests/s21_atan_tests.c tests/s21_ceil_tests/s21_ceil_tests.c tests/s21_cos_tests/s21_cos_tests.c
-FT_C_3=
-FT_C_4=
-FT_C_5=
+FT_C_3= tests/s21_exp_tests/s21_exp_tests.c tests/s21_fabs_tests/s21_fabs_tests.c tests/s21_floor_tests/s21_floor_tests.c
+FT_C_4= tests/s21_fmod_tests/s21_fmod_tests.c tests/s21_log_tests/s21_log_tests.c tests/s21_pow_tests/s21_pow_tests.c
+FT_C_5= tests/s21_sin_tests/s21_sin_tests.c tests/s21_sqrt_tests/s21_sqrt_tests.c tests/s21_tan_tests/s21_tan_tests.c
 
 
 SOURCE= -o mmm
@@ -29,7 +29,7 @@ all: clean s21_math.a test
 # ======================================= Компиляция тестов ===========================================================
 # -pthread -lcheck_pic -pthread -lrt -lm -lsubunit // флаги сообщающие путь к библиотеке check  убунту
 test:
-	${GCCG} ${FLAGS} ${FT_C_1}  ${FT_C_2} tests/main.c s21_math.a -o tests/run_tests ${TESTS_UBUNTU}
+	${GCCG} ${FLAGS} ${FT_C_1}  ${FT_C_2} ${FT_C_3} ${FT_C_4} ${FT_C_5} tests/main.c s21_math.a -o tests/run_tests ${TESTS_UBUNTU}
 #	./tests/run_tests
 test_st: t_s21_abs.o t_s21_acos.o t_s21_asin.o t_s21_atan.o t_s21_ceil.o t_s21_cos.o t_s21_exp.o t_s21_fabs.o t_s21_floor.o t_s21_fmod.o t_s21_log.o t_s21_pow.o t_s21_sin.o t_s21_sqrt.o t_s21_tan.o
 	ar rc tests/tests_s21_math.a s21_math_tests.h ${FILES_O_TESTS}

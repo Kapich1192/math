@@ -1,11 +1,11 @@
 #include "../s21_math_tests.h"
 
 START_TEST(s21_fabs_1) {
-        ck_assert_ldouble_eq_tol(s21_fabs(15), fabs(15), S21_EPS);
+        ck_assert_ldouble_eq_tol(s21_fabs(15), fabs(15.0), S21_EPS);
 } END_TEST
 
 START_TEST(s21_fabs_2) {
-    ck_assert_ldouble_eq_tol(s21_fabs(21), fabs(21), S21_EPS);
+    ck_assert_ldouble_eq_tol(s21_fabs(21), fabs(21.0), S21_EPS);
 } END_TEST
 
         Suite* s21_fabs_suite_create(void) {
