@@ -3,6 +3,7 @@
 #include <check.h>
 #include <math.h>
 #include <stdlib.h>
+
 #include "../s21_math.h"
 
 /* создание тестов */
@@ -38,4 +39,4 @@ int test_sin(void);
 int test_sqrt(void);
 int test_tan(void);
 
-#endif // _S21_MATH_TESTS_H_
+#endif  // _S21_MATH_TESTS_H_
