@@ -36,5 +36,6 @@ int main(void) {
   temp = test_sqrt();
   /*#15 s21_tan*/
   temp = test_tan();
+  temp = 0;
   return temp;
 }

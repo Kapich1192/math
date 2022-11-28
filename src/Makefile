@@ -11,7 +11,8 @@ GCC= gcc
 GCCG= gcc -g
 FLAGS= -Wall -Werror -Wextra
 TESTS_UBUNTU= -pthread -lcheck_pic -pthread -lrt -lm -lsubunit
-GCOV_FLAGS=
+GCOV_FLAGS= -fprofile-arcs -ftest-coverage -fPIC
+#-fprofile-arcs -ftest-coverage
 #файлы проекта
 F_C_1= common/s21_abs.c  common/s21_acos.c common/s21_atan.c
 F_C_2= common/s21_ceil.c common/s21_cos.c common/s21_exp.c
@@ -40,16 +41,26 @@ all: clean s21_math.a test
 
 # ======================================= Компиляция тестов ===========================================================
 # -pthread -lcheck_pic -pthread -lrt -lm -lsubunit // флаги сообщающие путь к библиотеке check  убунту
-test:
-	${GCCG} ${FLAGS} ${FT_C_1} ${FT_C_2} ${FT_C_3} ${FT_C_4} ${FT_C_5} ${FT_C} s21_math.a ${SOURCE_TESTS} ${TESTS_UBUNTU}
+test: clean s21_math.a
+	${GCCG} ${FLAGS} ${FT_C_1} ${FT_C_2} ${FT_C_3} ${FT_C_4} ${FT_C_5} ${FT_C} s21_math.a ${SOURCE_TESTS} ${TESTS_UBUNTU} ${GCOV_FLAGS}
+	./test
+	gcovr *.gcda
+	gcovr --html-details -o report.html
+#	ar rc suite_cases.a ${FT_C_1} ${FT_C_2} ${FT_C_3} ${FT_C_4} ${FT_C_5}
+#	ranlib suite_cases.a
+#	${GCC} ${FLAGS} --coverage s21_math.a suite_cases.a ${SOURCE_TESTS} ${F_C_1} ${F_C_2} ${F_C_3} ${F_C_4} ${F_C_5} main.o -lcheck
 
 # ======================================= Вывод тестов в HTML отчет ===================================================
-gcov_report:
+gcov_report: test
+	gcov *.gcno
+	gcov *.gcda
+	gcovr --html-details *.gcda -o THISSSSS.html
 
 
 # ======================================= Тесты на утечки =============================================================
 tests_valgrind:
-	valgrind --leak-check=full ./test
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=res_leak.txt ./test
+	grep -e ERROR res_leak.txt
 # ======================================= Сборка библиотеки в файл s21_math.a =========================================
 s21_math.a: clean.o clean.a s21_abs.o s21_acos.o s21_asin.o s21_atan.o s21_ceil.o s21_cos.o s21_exp.o s21_fabs.o s21_floor.o s21_fmod.o s21_log.o s21_pow.o s21_sin.o s21_sqrt.o s21_tan.o
 	ar rc s21_math.a ${F_O_1} ${F_O_2} ${F_O_3} ${F_O_4} ${F_O_5}
@@ -122,3 +133,7 @@ clean:
 	rm -rf *.o
 	rm -rf *.a
 	rm -rf test
+	rm -rf *.gcno
+	rm -rf *.gcda
+	rm -rf *.gcov
+	rm -rf *.txt
