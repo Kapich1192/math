@@ -1,0 +1,52 @@
+Running suite(s): s21_abs
+100%: Checks: 15, Failures: 0, Errors: 0
+Running suite(s): s21_acos
+0%: Checks: 2, Failures: 2, Errors: 0
+tests/s21_acos_tests/s21_acos_tests.c:4:F:Core of s21_acos:s21_acos_1:0: Assertion 'fabsl(acos(15) - s21_acos(15)) < 1e-9' failed: s21_acos(15) == 15, acos(15) == nan, 1e-9 == 1e-09
+tests/s21_acos_tests/s21_acos_tests.c:9:F:Core of s21_acos:s21_acos_2:0: Assertion 'fabsl(acos(21) - s21_acos(21)) < 1e-9' failed: s21_acos(21) == 21, acos(21) == nan, 1e-9 == 1e-09
+Running suite(s): s21_asin
+0%: Checks: 2, Failures: 2, Errors: 0
+tests/s21_asin_tests/s21_asin_tests.c:4:F:Core of s21_asin:s21_asin_1:0: Assertion 'fabsl(asin(15) - s21_asin(15)) < 1e-9' failed: s21_asin(15) == 15, asin(15) == nan, 1e-9 == 1e-09
+tests/s21_asin_tests/s21_asin_tests.c:9:F:Core of s21_asin:s21_asin_2:0: Assertion 'fabsl(asin(21) - s21_asin(21)) < 1e-9' failed: s21_asin(21) == 21, asin(21) == nan, 1e-9 == 1e-09
+Running suite(s): s21_atan
+0%: Checks: 2, Failures: 2, Errors: 0
+tests/s21_atan_tests/s21_atan_tests.c:4:F:Core of s21_atan:s21_atan_1:0: Assertion 'fabsl(atan(15) - s21_atan(15)) < 1e-9' failed: s21_atan(15) == 15, atan(15) == 1.50423, 1e-9 == 1e-09
+tests/s21_atan_tests/s21_atan_tests.c:9:F:Core of s21_atan:s21_atan_2:0: Assertion 'fabsl(atan(21) - s21_atan(21)) < 1e-9' failed: s21_atan(21) == 21, atan(21) == 1.52321, 1e-9 == 1e-09
+Running suite(s): s21_ceil
+100%: Checks: 2, Failures: 0, Errors: 0
+Running suite(s): s21_cos
+0%: Checks: 2, Failures: 2, Errors: 0
+tests/s21_cos_tests/s21_cos_tests.c:4:F:Core of s21_cos:s21_cos_1:0: Assertion 'fabsl(cos(15) - s21_cos(15)) < 1e-9' failed: s21_cos(15) == 15, cos(15) == -0.759688, 1e-9 == 1e-09
+tests/s21_cos_tests/s21_cos_tests.c:9:F:Core of s21_cos:s21_cos_2:0: Assertion 'fabsl(cos(21) - s21_cos(21)) < 1e-9' failed: s21_cos(21) == 21, cos(21) == -0.547729, 1e-9 == 1e-09
+Running suite(s): s21_exp
+0%: Checks: 2, Failures: 2, Errors: 0
+tests/s21_exp_tests/s21_exp_tests.c:4:F:Core of s21_exp:s21_exp_1:0: Assertion 'fabsl(exp(15) - s21_exp(15)) < 1e-9' failed: s21_exp(15) == 15, exp(15) == 3.26902e+06, 1e-9 == 1e-09
+tests/s21_exp_tests/s21_exp_tests.c:9:F:Core of s21_exp:s21_exp_2:0: Assertion 'fabsl(exp(21) - s21_exp(21)) < 1e-9' failed: s21_exp(21) == 21, exp(21) == 1.31882e+09, 1e-9 == 1e-09
+Running suite(s): s21_fabs
+100%: Checks: 2, Failures: 0, Errors: 0
+Running suite(s): s21_floor
+100%: Checks: 2, Failures: 0, Errors: 0
+Running suite(s): s21_fmod
+0%: Checks: 2, Failures: 2, Errors: 0
+tests/s21_fmod_tests/s21_fmod_tests.c:4:F:Core of s21_fmod:s21_fmod_1:0: Assertion 'fabsl(fmod(15, 4) - s21_fmod(15, 4)) < 1e-9' failed: s21_fmod(15, 4) == 19, fmod(15, 4) == 3, 1e-9 == 1e-09
+tests/s21_fmod_tests/s21_fmod_tests.c:9:F:Core of s21_fmod:s21_fmod_2:0: Assertion 'fabsl(fmod(21, 5) - s21_fmod(21, 5)) < 1e-9' failed: s21_fmod(21, 5) == 26, fmod(21, 5) == 1, 1e-9 == 1e-09
+Running suite(s): s21_log
+0%: Checks: 2, Failures: 2, Errors: 0
+tests/s21_log_tests/s21_log_tests.c:4:F:Core of s21_log:s21_log_1:0: Assertion 'fabsl(log(15) - s21_log(15)) < 1e-9' failed: s21_log(15) == 15, log(15) == 2.70805, 1e-9 == 1e-09
+tests/s21_log_tests/s21_log_tests.c:9:F:Core of s21_log:s21_log_2:0: Assertion 'fabsl(log(21) - s21_log(21)) < 1e-9' failed: s21_log(21) == 21, log(21) == 3.04452, 1e-9 == 1e-09
+Running suite(s): s21_pow
+0%: Checks: 2, Failures: 2, Errors: 0
+tests/s21_pow_tests/s21_pow_tests.c:4:F:Core of s21_pow:s21_pow_1:0: Assertion 'fabsl(pow(15, 3) - s21_pow(15, 3)) < 1e-9' failed: s21_pow(15, 3) == 18, pow(15, 3) == 3375, 1e-9 == 1e-09
+tests/s21_pow_tests/s21_pow_tests.c:9:F:Core of s21_pow:s21_pow_2:0: Assertion 'fabsl(pow(21, 2) - s21_pow(21, 2)) < 1e-9' failed: s21_pow(21, 2) == 23, pow(21, 2) == 441, 1e-9 == 1e-09
+Running suite(s): s21_sin
+0%: Checks: 2, Failures: 2, Errors: 0
+tests/s21_sin_tests/s21_sin_tests.c:4:F:Core of s21_sin:s21_sin_1:0: Assertion 'fabsl(sin(15) - s21_sin(15)) < 1e-9' failed: s21_sin(15) == 15, sin(15) == 0.650288, 1e-9 == 1e-09
+tests/s21_sin_tests/s21_sin_tests.c:9:F:Core of s21_sin:s21_sin_2:0: Assertion 'fabsl(sin(21) - s21_sin(21)) < 1e-9' failed: s21_sin(21) == 21, sin(21) == 0.836656, 1e-9 == 1e-09
+Running suite(s): s21_sqrt
+0%: Checks: 2, Failures: 2, Errors: 0
+tests/s21_sqrt_tests/s21_sqrt_tests.c:4:F:Core of s21_sqrt:s21_sqrt_1:0: Assertion 'fabsl(sqrt(15) - s21_sqrt(15)) < 1e-9' failed: s21_sqrt(15) == 15, sqrt(15) == 3.87298, 1e-9 == 1e-09
+tests/s21_sqrt_tests/s21_sqrt_tests.c:9:F:Core of s21_sqrt:s21_sqrt_2:0: Assertion 'fabsl(sqrt(21) - s21_sqrt(21)) < 1e-9' failed: s21_sqrt(21) == 21, sqrt(21) == 4.58258, 1e-9 == 1e-09
+Running suite(s): s21_tan
+0%: Checks: 2, Failures: 2, Errors: 0
+tests/s21_tan_tests/s21_tan_tests.c:4:F:Core of s21_tan:s21_tan_1:0: Assertion 'fabsl(tan(15) - s21_tan(15)) < 1e-9' failed: s21_tan(15) == 15, tan(15) == -0.855993, 1e-9 == 1e-09
+tests/s21_tan_tests/s21_tan_tests.c:9:F:Core of s21_tan:s21_tan_2:0: Assertion 'fabsl(tan(21) - s21_tan(21)) < 1e-9' failed: s21_tan(21) == 21, tan(21) == -1.5275, 1e-9 == 1e-09

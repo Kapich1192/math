@@ -43,8 +43,10 @@ all: clean s21_math.a test
 # -pthread -lcheck_pic -pthread -lrt -lm -lsubunit // флаги сообщающие путь к библиотеке check  убунту
 test: clean s21_math.a
 	${GCCG} ${FLAGS} ${FT_C_1} ${FT_C_2} ${FT_C_3} ${FT_C_4} ${FT_C_5} ${FT_C} s21_math.a ${SOURCE_TESTS} ${TESTS_UBUNTU} ${GCOV_FLAGS}
-	./test
-	gcovr *.gcda
+	./test > ttttt.txt
+	gcov test_s21_*.gcda
+	gcovr -b
+	gcovr
 	gcovr --html-details -o report.html
 #	ar rc suite_cases.a ${FT_C_1} ${FT_C_2} ${FT_C_3} ${FT_C_4} ${FT_C_5}
 #	ranlib suite_cases.a
@@ -52,9 +54,7 @@ test: clean s21_math.a
 
 # ======================================= Вывод тестов в HTML отчет ===================================================
 gcov_report: test
-	gcov *.gcno
-	gcov *.gcda
-	gcovr -o THISSSSS.html
+	gcovr *.gcda -b -o THISSSSS.html
 
 
 # ======================================= Тесты на утечки =============================================================
@@ -129,6 +129,10 @@ clean.o:
 	rm -rf *.o
 clean.a:
 	rm -rf *.a
+clean.gcno:
+	rm -rf *.gcno
+clean.gcda:
+	rm -rf *.gcda
 clean:
 	rm -rf *.o
 	rm -rf *.a
