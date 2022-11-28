@@ -141,3 +141,4 @@ clean:
 	rm -rf *.gcda
 	rm -rf *.gcov
 	rm -rf *.txt
+	rm -rf *.html
