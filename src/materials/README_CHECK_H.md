@@ -55,9 +55,7 @@ int main(void) {
 </pre>
 
 <h2>Функции</h2>
-<pre>
-    ck_assert_int_eq(int value, int value); // Тест целочисленного значения
-</pre>
+
 <pre>
     ck_assert_int_eq(int value, int value); // Тест целочисленного значения
 </pre>
@@ -80,13 +78,13 @@ int main(void) {
 
 <h3>Тесты</h3>
 <pre>
-    ck_assert_int_eq(int value, int value); // Тест целочисленного значения
+    ck_assert_ldouble_eq_tol(long double ex, long double ac, EPS); // Тест (long double) значения с EPS
 </pre>
 <pre>
-    ck_assert_int_eq(int value, int value); // Тест целочисленного значения
+    ck_assert_int_eq(int ex, int ac); // Тест (int) значения
 </pre>
 <pre>
-    ck_assert_int_eq(int value, int value); // Тест целочисленного значения
+    ck_assert_ldouble_eq(long double ex, long double ac); // Тест (long double) значения без EPS
 </pre>
 <pre>
     ck_assert_int_eq(int value, int value); // Тест целочисленного значения

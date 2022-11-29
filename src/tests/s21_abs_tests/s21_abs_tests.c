@@ -1,9 +1,9 @@
 #include "../s21_math_tests.h"
 
-START_TEST(s21_abs_1) { ck_assert_int_eq(s21_abs(21), abs(21)); }
+START_TEST(s21_abs_1) { ck_assert_int_eq(s21_abs(44), abs(44)); }
 END_TEST
 
-START_TEST(s21_abs_2) { ck_assert_int_eq(s21_abs(-21), abs(-21)); }
+START_TEST(s21_abs_2) { ck_assert_int_eq(s21_abs(-44), abs(-44)); }
 END_TEST
 
 START_TEST(s21_abs_3) {

@@ -19,14 +19,14 @@ F_C_2= common/s21_ceil.c common/s21_cos.c common/s21_exp.c
 F_C_3= common/s21_fabs.c common/s21_floor.c common/s21_fmod.c
 F_C_4= common/s21_log.c common/s21_pow.c common/s21_sin.c
 F_C_5= common/s21_sqrt.c common/s21_tan.c common/s21_asin.c
-F_C_COMMON = common/s21_factorial.c
+F_C_COMMON = common/s21_common.c
 F_H= s21_math.h
 #Объектные файлы для создания статической библиотеки math.h
 F_O_1= s21_abs.o s21_acos.o s21_asin.o
 F_O_2= s21_atan.o s21_ceil.o s21_cos.o
 F_O_3= s21_exp.o s21_fabs.o s21_floor.o
 F_O_4= s21_fmod.o s21_log.o s21_pow.o
-F_O_5= s21_sin.o s21_sqrt.o s21_tan.o
+F_O_5= s21_sin.o s21_sqrt.o s21_tan.o s21_common.o
 #файлы тестов
 FT_H= tests/s21_math_tests.h
 FT_C= tests/main.c
@@ -70,7 +70,7 @@ tests_valgrind_gcov: gcov_report
 	grep -e ERROR res_leak.txt
 	rm -rf *.gcda
 # ======================================= Сборка библиотеки в файл s21_math.a =========================================
-s21_math.a: clean.o clean.a s21_abs.o s21_acos.o s21_asin.o s21_atan.o s21_ceil.o s21_cos.o s21_exp.o s21_fabs.o s21_floor.o s21_fmod.o s21_log.o s21_pow.o s21_sin.o s21_sqrt.o s21_tan.o
+s21_math.a: clean.o clean.a s21_abs.o s21_acos.o s21_asin.o s21_atan.o s21_ceil.o s21_cos.o s21_exp.o s21_fabs.o s21_floor.o s21_fmod.o s21_log.o s21_pow.o s21_sin.o s21_sqrt.o s21_tan.o s21_common.o
 	ar rc s21_math.a ${F_O_1} ${F_O_2} ${F_O_3} ${F_O_4} ${F_O_5}
 	ranlib s21_math.a
 	make clean.o
@@ -119,6 +119,9 @@ s21_sqrt.o:
 #15
 s21_tan.o:
 	gcc -c ${FLAGS} common/s21_tan.c
+#16
+s21_common.o:
+	gcc -c ${FLAGS} common/s21_common.c
 
 # ======================================= Работа со стилями в проекте =================================================
 style:

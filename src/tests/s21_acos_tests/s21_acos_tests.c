@@ -1,12 +1,12 @@
 #include "../s21_math_tests.h"
 
 START_TEST(s21_acos_1) {
-  ck_assert_ldouble_eq_tol(s21_acos(15), acos(15), S21_EPS);
+  ck_assert_ldouble_eq_tol(s21_acos(1), acos(1), S21_EPS);
 }
 END_TEST
 
 START_TEST(s21_acos_2) {
-  ck_assert_ldouble_eq_tol(s21_acos(21), acos(21), S21_EPS);
+  ck_assert_ldouble_eq_tol(s21_acos(-1), acos(-1), S21_EPS);
 }
 END_TEST
 
