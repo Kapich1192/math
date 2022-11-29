@@ -44,11 +44,6 @@ all: clean gcov_report
 test: clean s21_math.a
 	${GCCG} ${FLAGS} ${FT_C_1} ${FT_C_2} ${FT_C_3} ${FT_C_4} ${FT_C_5} ${FT_C} s21_math.a ${SOURCE_TESTS} ${TESTS_UBUNTU}
 
-
-#	ar rc suite_cases.a ${FT_C_1} ${FT_C_2} ${FT_C_3} ${FT_C_4} ${FT_C_5}
-#	ranlib suite_cases.a
-#	${GCC} ${FLAGS} --coverage s21_math.a suite_cases.a ${SOURCE_TESTS} ${F_C_1} ${F_C_2} ${F_C_3} ${F_C_4} ${F_C_5} main.o -lcheck
-
 # ======================================= Вывод тестов в HTML отчет ===================================================
 gcov_report: clean s21_math.a
 	${GCCG} ${FLAGS} ${FT_C_1} ${FT_C_2} ${FT_C_3} ${FT_C_4} ${FT_C_5} ${FT_C} s21_math.a ${SOURCE_TESTS} ${TESTS_UBUNTU} ${GCOV_FLAGS}
