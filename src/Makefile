@@ -56,11 +56,16 @@ gcov_report: clean s21_math.a
 	gcov test_s21_*.gcda
 	gcovr -b
 	gcovr
-	gcovr --html-details -o report.html
+	mkdir report
+	gcovr --html-details -o report/report.html
 	rm -rf *.gcda *gcno
 
 # ======================================= Тесты на утечки =============================================================
-tests_valgrind:
+tests_valgrind: test
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=res_leak.txt ./test
+	grep -e ERROR res_leak.txt
+	rm -rf *.gcda
+tests_valgrind_gcov: gcov_report
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=res_leak.txt ./test
 	grep -e ERROR res_leak.txt
 	rm -rf *.gcda
@@ -146,4 +151,5 @@ clean:
 	rm -rf *.gcov
 	rm -rf *.txt
 	rm -rf *.html
-	rm -rf report/*
+	rm -rf *.css
+	rm -rf report
