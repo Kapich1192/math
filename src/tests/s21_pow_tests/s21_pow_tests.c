@@ -1,12 +1,14 @@
 #include "../s21_math_tests.h"
 
 START_TEST(s21_pow_1) {
-  ck_assert_ldouble_eq_tol(s21_pow(15, 3), pow(15, 3), S21_EPS);
+  ck_assert_ldouble_eq_tol(s21_pow(2.123123123, 2), pow(2.123123123, 2),
+                           S21_EPS);
 }
 END_TEST
 
 START_TEST(s21_pow_2) {
-  ck_assert_ldouble_eq_tol(s21_pow(21, 2), pow(21, 2), S21_EPS);
+  ck_assert_ldouble_eq_tol(s21_pow(212.123123123, 2), pow(212.123123123, 2),
+                           S21_EPS);
 }
 END_TEST
 
