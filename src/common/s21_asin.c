@@ -5,7 +5,8 @@
  * вычисляет арксинус
  * */
 long double s21_asin(double x) {
-  long double term = x, result = S21_NAN;
+  long double term = x;
+  long double result = S21_NAN;
   if (-1.0 < x && x < 1.0) {
     result = term;
     x *= x;
@@ -16,6 +17,5 @@ long double s21_asin(double x) {
   } else if (x == -1.0) {
     result = -S21_PI / 2.0;
   }
-
   return result;
 }

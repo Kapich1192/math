@@ -36,14 +36,12 @@ START_TEST(s21_floor_8) {
 END_TEST
 
 START_TEST(s21_floor_9) {
-  ck_assert_ldouble_infinite(s21_floor(INFINITY));
-  ck_assert_ldouble_infinite(floor(INFINITY));
+  ck_assert_ldouble_eq_tol(s21_floor(0.999), floor(0.999), AC);
 }
 END_TEST
 
 START_TEST(s21_floor_10) {
-  ck_assert_ldouble_infinite(s21_floor(-INFINITY));
-  ck_assert_ldouble_infinite(floor(-INFINITY));
+  ck_assert_ldouble_eq_tol(s21_floor(1.999), floor(1.999), AC);
 }
 END_TEST
 

@@ -37,14 +37,13 @@ START_TEST(s21_log_7) {
 END_TEST
 
 START_TEST(s21_log_8) {
-  ck_assert_ldouble_infinite(s21_log(S21_INFINITY));
-  ck_assert_ldouble_infinite(log(S21_INFINITY));
+  ck_assert_ldouble_nan(s21_log(-567));
+  ck_assert_ldouble_nan(log(-567));
 }
 END_TEST
 
 START_TEST(s21_log_9) {
-  ck_assert_ldouble_infinite(s21_log(0));
-  ck_assert_ldouble_infinite(log(0));
+  ck_assert_ldouble_eq_tol(s21_log(999), log(999), S21_EPS);
 }
 END_TEST
 

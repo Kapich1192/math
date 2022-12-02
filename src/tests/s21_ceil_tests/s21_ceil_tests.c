@@ -18,8 +18,7 @@ START_TEST(s21_ceil_5) {
 END_TEST
 
 START_TEST(s21_ceil_6) {
-  ck_assert_ldouble_infinite(s21_ceil(INFINITY));
-  ck_assert_ldouble_infinite(ceil(INFINITY));
+  ck_assert_ldouble_eq(s21_ceil(-9999.123), ceil(-9999.123));
 }
 END_TEST
 
@@ -29,10 +28,7 @@ START_TEST(s21_ceil_7) {
 }
 END_TEST
 
-START_TEST(s21_ceil_8) {
-  ck_assert_ldouble_infinite(s21_ceil(-INFINITY));
-  ck_assert_ldouble_infinite(ceil(-INFINITY));
-}
+START_TEST(s21_ceil_8) { ck_assert_ldouble_eq(s21_ceil(-9.123), ceil(-9.123)); }
 END_TEST
 
 START_TEST(s21_ceil_9) { ck_assert_ldouble_eq(s21_ceil(-0), ceil(-0)); }

@@ -42,8 +42,7 @@ START_TEST(s21_sqrt_8) {
 END_TEST
 
 START_TEST(s21_sqrt_9) {
-  ck_assert_ldouble_infinite(s21_sqrt(INFINITY));
-  ck_assert_ldouble_infinite(sqrt(INFINITY));
+  ck_assert_ldouble_eq_tol(s21_sqrt(0.123123123), sqrt(0.123123123), S21_EPS);
 }
 END_TEST
 

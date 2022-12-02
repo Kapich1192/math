@@ -33,8 +33,7 @@ START_TEST(s21_exp_7) {
 END_TEST
 
 START_TEST(s21_exp_8) {
-  ck_assert_ldouble_infinite(s21_exp(S21_INFINITY));
-  ck_assert_ldouble_infinite(exp(S21_INFINITY));
+  ck_assert_ldouble_eq_tol(s21_exp(-7), exp(-7), S21_EPS);
 }
 END_TEST
 

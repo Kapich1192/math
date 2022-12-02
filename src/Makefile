@@ -65,7 +65,7 @@ tests_valgrind_gcov: gcov_report
 	grep -e ERROR res_leak.txt
 	rm -rf *.gcda
 # ======================================= Сборка библиотеки в файл s21_math.a =========================================
-s21_math.a: clean.o clean.a s21_abs.o s21_acos.o s21_asin.o s21_atan.o s21_ceil.o s21_cos.o s21_exp.o s21_fabs.o s21_floor.o s21_fmod.o s21_log.o s21_pow.o s21_sin.o s21_sqrt.o s21_tan.o s21_common.o
+s21_math.a: clean s21_abs.o s21_acos.o s21_asin.o s21_atan.o s21_ceil.o s21_cos.o s21_exp.o s21_fabs.o s21_floor.o s21_fmod.o s21_log.o s21_pow.o s21_sin.o s21_sqrt.o s21_tan.o s21_common.o
 	ar rc s21_math.a ${F_O_1} ${F_O_2} ${F_O_3} ${F_O_4} ${F_O_5}
 	ranlib s21_math.a
 	make clean.o

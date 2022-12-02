@@ -42,13 +42,15 @@ END_TEST
 
 START_TEST(s21_acos_7) {
   long double test_val = S21_PI;
-  ck_assert_ldouble_eq_tol(s21_acos(test_val), acos(test_val), AC);
+  ck_assert_ldouble_nan(s21_acos(test_val));
+  ck_assert_ldouble_nan(acos(test_val));
 }
 END_TEST
 
 START_TEST(s21_acos_8) {
   long double test_val = -S21_PI;
-  ck_assert_ldouble_eq_tol(s21_acos(test_val), acos(test_val), AC);
+  ck_assert_ldouble_nan(s21_acos(test_val));
+  ck_assert_ldouble_nan(acos(test_val));
 }
 END_TEST
 
@@ -83,13 +85,13 @@ START_TEST(s21_acos_13) {
 END_TEST
 
 START_TEST(s21_acos_14) {
-  long double test_val = S21_PI / 2;
+  long double test_val = S21_PI / 9;
   ck_assert_ldouble_eq_tol(s21_acos(test_val), acos(test_val), AC);
 }
 END_TEST
 
 START_TEST(s21_acos_15) {
-  long double test_val = -S21_PI / 2;
+  long double test_val = -S21_PI / 9;
   ck_assert_ldouble_eq_tol(s21_acos(test_val), acos(test_val), AC);
 }
 END_TEST
@@ -107,28 +109,28 @@ START_TEST(s21_acos_17) {
 END_TEST
 
 START_TEST(s21_acos_18) {
-  long double test_val = S21_PI / 2;
+  long double test_val = S21_PI / 21;
   ck_assert_ldouble_eq_tol(s21_acos(test_val), acos(test_val), AC);
 }
 END_TEST
 
 START_TEST(s21_acos_19) {
-  long double test_val = -S21_PI / 2;
+  long double test_val = -S21_PI / 21;
   ck_assert_ldouble_eq_tol(s21_acos(test_val), acos(test_val), AC);
 }
 END_TEST
 
 START_TEST(s21_acos_20) {
-  long double test_val = 2 * S21_PI;
+  long double test_val = S21_PI / 99;
   ck_assert_ldouble_eq_tol(s21_acos(test_val), acos(test_val), AC);
 }
 END_TEST
 
 START_TEST(s21_acos_21) {
   for (int i = 0; i < 5; ++i) {
-    long double test_val = i * S21_PI;
+    long double test_val = i * 0.01 * S21_PI;
     ck_assert_ldouble_eq_tol(s21_acos(test_val), acos(test_val), AC);
-    long double test_val_m = -i * S21_PI;
+    long double test_val_m = -i * 0.01 * S21_PI;
     ck_assert_ldouble_eq_tol(s21_acos(test_val_m), acos(test_val_m), AC);
   }
 }
