@@ -90,7 +90,7 @@ END_TEST
 
 START_TEST(s21_tan_15) {
   long double test_val = -S21_PI / 2;
-  ck_assert_ldouble_eq(s21_tan(test_val), tan(test_val));
+  ck_assert_ldouble_eq_tol(s21_tan(test_val), tan(test_val), S21_EPS);
 }
 END_TEST
 
