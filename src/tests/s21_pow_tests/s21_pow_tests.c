@@ -1,5 +1,5 @@
 #include "../s21_math_tests.h"
-#define AC 1e-06
+
 /*--------TESTS -> INFINITY--------*/
 START_TEST(s21_pow_1) {
   double base = S21_INFINITY;
