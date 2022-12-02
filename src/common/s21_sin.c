@@ -20,7 +20,7 @@ long double s21_sin(double x) {
       x = -x;
       s = -1;
     }
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 32; i++) {
       result +=
           s21_pow(-1, i) * s21_pow(x, 2 * i + 1) / s21_factorial(2 * i + 1);
     }
